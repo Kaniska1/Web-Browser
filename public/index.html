@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Web Browser</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>Simple Web Browser</h1>
+      <p class="subtitle">Enter a URL to view its content</p>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-section">
+      <form id="urlForm" class="url-form">
+        <div class="input-group">
+          <input 
+            type="text" 
+            id="urlInput" 
+            class="url-input" 
+            placeholder="Enter URL (e.g., example.com or https://example.com)"
+            autocomplete="off"
+          >
+          <button type="submit" class="search-button">Fetch</button>
+        </div>
+      </form>
+
+      <!-- URL Display -->
+      <div id="currentUrl" class="current-url" style="display: none;">
+        <span class="url-label">Current URL:</span>
+        <span id="urlDisplay" class="url-display"></span>
+      </div>
+    </div>
+
+    <!-- Error Message -->
+    <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+    <!-- Content Frame -->
+    <div class="content-frame">
+      <!-- Loading Indicator -->
+      <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+        <div class="spinner"></div>
+        <p>Fetching content...</p>
+      </div>
+
+      <!-- Welcome Message -->
+      <div id="welcomeMessage" class="welcome-message">
+        <h2>Welcome!</h2>
+        <p>Enter a URL above to start browsing. The fetched webpage will be displayed here.</p>
+        <p class="hint">💡 Tip: You can enter just the domain (e.g., "google.com") or the full URL (https://www.google.com)</p>
+      </div>
+
+      <!-- Iframe for content -->
+      <iframe 
+        id="contentFrame" 
+        title="Fetched webpage content"
+        class="content-iframe"
+        sandbox="allow-same-origin allow-scripts allow-forms"
+        style="display: none;"
+      ></iframe>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
